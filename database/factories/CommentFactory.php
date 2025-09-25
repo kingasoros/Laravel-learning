@@ -1,0 +1,24 @@
+<?php
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+
+use App\Comment;
+use App\Task;
+use App\User;
+use Faker\Generator as Faker;
+
+$factory->define(Comment::class, function (Faker $faker) {
+    return [
+        'task_id' => function () {
+            return factory(Task::class)->create()->id;
+        },
+        'user_id' => function () {
+            return factory(User::class)->create()->id;
+        },
+        'description' => $faker->paragraph,
+        'files' => [],
+        'status' => $faker->randomElement(['not started', 'in progress', 'completed']),
+        'type' => $faker->randomElement(['development', 'modification', 'bugfix', 'other']),
+        'time_spent' => $faker->numberBetween(5, 240), 
+    ];
+});
