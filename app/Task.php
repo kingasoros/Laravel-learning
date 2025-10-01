@@ -25,11 +25,11 @@ class Task extends Model
         'files' => 'array', 
     ];
 
-    public function projects() {
+    public function project() {
         return $this->belongsTo(Project::class);
     }
 
-    public function users() {
+    public function user() {
         return $this->belongsTo(User::class);
     }
 
