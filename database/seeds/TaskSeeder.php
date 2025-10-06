@@ -14,13 +14,16 @@ class TaskSeeder extends Seeder
      */
     public function run()
     {
-        Project::all()->each(function ($project) {
+        Project::all()->each(function ($project) 
+        {
             $taskCount = rand(3, 7);
 
             factory(Task::class, $taskCount)->create([
                 'project_id' => $project->id,
-            ])->each(function ($task) {
-                if (!$task->user_id) {
+            ])->each(function ($task) 
+            {
+                if (!$task->user_id) 
+                    {
                     $task->user_id = User::inRandomOrder()->first()->id ?? null;
                     $task->save();
                 }

@@ -15,7 +15,8 @@ class ProjectSeeder extends Seeder
     {
         factory(User::class, 10)->create();
 
-        factory(Project::class, 5)->create()->each(function ($project) {
+        factory(Project::class, 5)->create()->each(function ($project) 
+        {
             $users = User::inRandomOrder()->take(rand(2, 5))->pluck('id');
             $project->users()->attach($users);
         });

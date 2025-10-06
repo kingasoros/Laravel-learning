@@ -9,10 +9,12 @@ use App\User;
 
 $factory->define(Task::class, function (Faker $faker) {
     return [
-        'project_id' => function () {
+        'project_id' => function () 
+        {
             return factory(Project::class)->create()->id; 
         },
-        'user_id' => function () {
+        'user_id' => function () 
+        {
             return factory(User::class)->create()->id; 
         },
         'title' => $faker->sentence(3),

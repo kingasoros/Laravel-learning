@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Task extends Model
@@ -25,15 +23,18 @@ class Task extends Model
         'files' => 'array', 
     ];
 
-    public function project() {
+    public function project() 
+    {
         return $this->belongsTo(Project::class);
     }
 
-    public function user() {
+    public function user() 
+    {
         return $this->belongsTo(User::class);
     }
 
-    public function comments() {
+    public function comments() 
+    {
         return $this->hasMany(Comment::class);
     }
 

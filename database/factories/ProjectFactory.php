@@ -12,7 +12,8 @@ $factory->define(Project::class, function (Faker $faker) {
         'description' => $faker->paragraph,
         'status'      => $faker->randomElement(['new', 'in progress', 'completed']),
         'documents'   => [], 
-        'user_id'     => function () {
+        'user_id'     => function () 
+        {
             return factory(User::class)->create()->id; 
         },
     ];

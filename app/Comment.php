@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
@@ -24,7 +22,8 @@ class Comment extends Model
         'files' => 'array', 
     ];
 
-    public function user() {
+    public function user() 
+    {
         return $this->belongsTo(User::class);
     }
 
